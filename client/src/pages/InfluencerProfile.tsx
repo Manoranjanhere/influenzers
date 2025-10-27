@@ -81,7 +81,7 @@ const InfluencerProfile = () => {
   }));
 
   const terrainData = stats.flatMap((stat, index) =>
-    stat.topPosts.map((post, i) => ({
+    stat.topPosts.map((post) => ({
       x: Math.cos((index * Math.PI * 2) / stats.length) * 2,
       y: post.engagement / 100,
       z: Math.sin((index * Math.PI * 2) / stats.length) * 2,

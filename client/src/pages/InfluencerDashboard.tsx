@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { usersAPI, socialAPI } from '../utils/api';
+import { socialAPI } from '../utils/api';
 import { motion } from 'framer-motion';
 import EngagementChart from '../components/charts/EngagementChart';
-import FollowerGrowthChart from '../components/charts/FollowerGrowthChart';
 import EngagementDistributionChart from '../components/charts/EngagementDistributionChart';
 import InfluenceTerrain from '../components/visualizations/InfluenceTerrain';
-import RadialEngagementChart from '../components/visualizations/RadialEngagementChart';
 import jsPDF from 'jspdf';
-import type { InfluencerStats } from '../types';
 
 const InfluencerDashboard = () => {
   const { user, updateUser, logout } = useAuth();
@@ -117,7 +114,7 @@ const InfluencerDashboard = () => {
   }));
 
   const terrainData = stats.flatMap((stat, index) =>
-    stat.posts.slice(0, 10).map((post: any, i: number) => ({
+    stat.posts.slice(0, 10).map((post: any) => ({
       x: Math.cos((index * Math.PI * 2) / stats.length) * 2,
       y: post.engagement / 100,
       z: Math.sin((index * Math.PI * 2) / stats.length) * 2,

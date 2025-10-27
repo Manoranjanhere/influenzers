@@ -3,7 +3,6 @@ import { useAuth } from '../contexts/AuthContext';
 import { usersAPI, shortlistAPI } from '../utils/api';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import type { User } from '../types';
 
 const BrandDashboard = () => {
   const { user, logout } = useAuth();
